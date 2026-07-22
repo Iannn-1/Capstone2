@@ -1,0 +1,181 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  border-bottom: 2px solid rgba(139, 59, 59, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.brand {
+  flex: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoIcon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #8b3b3b 0%, #a04848 50%, #e6c57a 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(139, 59, 59, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.logoIcon::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.rfidWave {
+  font-size: 28px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+}
+
+.schoolText {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.rfidText {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #000000;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.signInBtn {
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #8b3b3b 0%, #a04848 100%);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(139, 59, 59, 0.4);
+  border: 1px solid rgba(230, 197, 122, 0.2);
+  letter-spacing: 0.5px;
+}
+
+.signInBtn:hover {
+  background: linear-gradient(135deg, #a04848 0%, #8b3b3b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(139, 59, 59, 0.6);
+  border-color: rgba(230, 197, 122, 0.4);
+}
+
+.signInBtn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 70px;
+  }
+
+  .inner {
+    padding: 0 20px;
+  }
+
+  .logoIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .rfidWave {
+    font-size: 24px;
+  }
+
+  .schoolText {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .rfidText {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  .signInBtn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    gap: 12px;
+  }
+
+  .logoIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .rfidWave {
+    font-size: 20px;
+  }
+
+  .schoolText {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .rfidText {
+    font-size: 18px;
+  }
+
+  .signInBtn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,311 @@
+/* ===================================================
+   Dashboard shared CSS module
+   Used by all pages and components under app/dashboard
+   =================================================== */
+
+/* ── Layout ── */
+.dashboard {
+  padding: 20px 24px;
+  display: grid;
+  gap: 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* ── Card ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.cardBody {
+  padding: 16px 20px;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* cols-2 / cols-3 helper classes (appended via className concatenation) */
+:global(.cols-2) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+:global(.cols-3) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  :global(.cols-2),
+  :global(.cols-3) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Controls bar ── */
+.controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Form elements ── */
+.input {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  color: #1f2937;
+  transition: border-color 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #8b3b3b;
+  box-shadow: 0 0 0 3px rgba(139, 59, 59, 0.1);
+}
+
+.select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  color: #1f2937;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.select:focus {
+  border-color: #8b3b3b;
+  box-shadow: 0 0 0 3px rgba(139, 59, 59, 0.1);
+}
+
+/* ── Button ── */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.button:hover {
+  background: #e5e7eb;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* Status badge variants */
+.statusOnline {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusOffline {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.statusAllowed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusDenied {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ── Table ── */
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead th {
+  background: #f9fafb;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+  vertical-align: middle;
+}
+
+.tableRow:last-child td {
+  border-bottom: none;
+}
+
+.tableRow:hover td {
+  background: #f9fafb;
+}
+
+/* ── Stat box ── */
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+/* ── Hero banner (used by HeroClock) ── */
+.heroBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: linear-gradient(135deg, #8b3b3b 0%, #6e2b2b 100%);
+  border-radius: 16px;
+  padding: 28px 32px;
+  color: white;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.heroGreeting {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+}
+
+.heroTitle {
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.heroSub {
+  font-size: 13px;
+  opacity: 0.75;
+  margin: 0;
+}
+
+.heroClock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.heroTime {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
+}
+
+.heroTimeLabel {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Keyframes ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
